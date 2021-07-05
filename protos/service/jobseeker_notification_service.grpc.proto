@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protos.service;
+
+option go_package = "github.com/wanpng/notification-grpc/grpc/service";
+option java_multiple_files = true;
+option java_package = "com.wanpng.notification.grpc.service";
+option java_outer_classname = "JobseekerNotificationProtos";
+
+import "protos/domain/invitation_request.grpc.proto";
+import "protos/domain/application_status_change.grpc.proto";
+
+service JobseekerNotificationService {
+    rpc NotifyInvitation(protos.domain.InvitationRequest) returns (NotifyJobseekerInvitationResponse);
+    rpc NotifyApplicationStatusChange(protos.domain.ApplicationStatusChange) returns (NotifyApplicationStatusChangeResponse);
+}
+
+message NotifyJobseekerInvitationResponse {
+    string id = 1;
+}
+
+message NotifyApplicationStatusChangeResponse {
+    string id = 1;
+}

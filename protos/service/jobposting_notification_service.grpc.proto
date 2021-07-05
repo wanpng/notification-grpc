@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package protos.service;
+
+option go_package = "github.com/wanpng/notification-grpc/grpc/service";
+option java_multiple_files = true;
+option java_package = "com.wanpng.notification.grpc.service";
+option java_outer_classname = "JobPostingNotificationProtos";
+
+service JobPostingNotificationService {
+    rpc CloseJob(CloseJobRequest) returns (CloseJobResponse);
+}
+
+message CloseJobRequest {
+    string job_id = 1;
+}
+
+message CloseJobResponse {
+    bool status = 1;
+}

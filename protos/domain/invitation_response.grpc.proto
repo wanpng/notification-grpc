@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package protos.domain;
+
+option go_package = "github.com/wanpng/notification-grpc/grpc/domain";
+option java_multiple_files = true;
+option java_package = "com.wanpng.notification.grpc.domain";
+option java_outer_classname = "InvitationResponseProtos";
+
+import "google/protobuf/timestamp.proto";
+
+message InvitationResponse {
+    string user_id = 1;
+    string employer_id = 2;
+    string type = 3;
+    bool is_viewed = 4;
+    bool is_seen = 5;
+    google.protobuf.Timestamp updated_when = 6;
+    string job_id = 7;
+    string jobseeker_id = 8;
+    int32 invitation_id = 9;
+    string status = 10;
+}

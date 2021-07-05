@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protos.service;
+
+option go_package = "github.com/wanpng/notification-grpc/grpc/service";
+option java_multiple_files = true;
+option java_package = "com.wanpng.notification.grpc.service";
+option java_outer_classname = "EmployerNotificationProtos";
+
+import "protos/domain/invitation_response.grpc.proto";
+import "protos/domain/applicant_count.grpc.proto";
+
+service EmployerNotificationService {
+    rpc NotifyInvitation(protos.domain.InvitationResponse) returns (NotifyEmployerInvitationResponse);
+    rpc NotifyApplicantCount(protos.domain.ApplicantCount) returns (NotifyApplicantCountResponse);
+}
+
+message NotifyEmployerInvitationResponse {
+    string id = 1;
+}
+
+message NotifyApplicantCountResponse {
+    string id = 1;
+}
