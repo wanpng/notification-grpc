@@ -71,18 +71,12 @@ public interface ApplicantCountOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getUpdatedWhenOrBuilder();
 
   /**
-   * <code>int32 count = 7;</code>
-   * @return The count.
-   */
-  int getCount();
-
-  /**
-   * <code>string job_id = 8;</code>
+   * <code>string job_id = 7;</code>
    * @return The jobId.
    */
   java.lang.String getJobId();
   /**
-   * <code>string job_id = 8;</code>
+   * <code>string job_id = 7;</code>
    * @return The bytes for jobId.
    */
   com.google.protobuf.ByteString

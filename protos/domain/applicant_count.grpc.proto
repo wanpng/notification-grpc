@@ -16,6 +16,5 @@ message ApplicantCount {
     bool is_viewed = 4;
     bool is_seen = 5;
     google.protobuf.Timestamp updated_when = 6;
-    int32 count = 7;
-    string job_id = 8;
+    string job_id = 7;
 }

@@ -93,12 +93,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 56: {
-
-            count_ = input.readInt32();
-            break;
-          }
-          case 66: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             jobId_ = s;
@@ -298,21 +293,10 @@ private static final long serialVersionUID = 0L;
     return getUpdatedWhen();
   }
 
-  public static final int COUNT_FIELD_NUMBER = 7;
-  private int count_;
-  /**
-   * <code>int32 count = 7;</code>
-   * @return The count.
-   */
-  @java.lang.Override
-  public int getCount() {
-    return count_;
-  }
-
-  public static final int JOB_ID_FIELD_NUMBER = 8;
+  public static final int JOB_ID_FIELD_NUMBER = 7;
   private volatile java.lang.Object jobId_;
   /**
-   * <code>string job_id = 8;</code>
+   * <code>string job_id = 7;</code>
    * @return The jobId.
    */
   @java.lang.Override
@@ -329,7 +313,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string job_id = 8;</code>
+   * <code>string job_id = 7;</code>
    * @return The bytes for jobId.
    */
   @java.lang.Override
@@ -379,11 +363,8 @@ private static final long serialVersionUID = 0L;
     if (updatedWhen_ != null) {
       output.writeMessage(6, getUpdatedWhen());
     }
-    if (count_ != 0) {
-      output.writeInt32(7, count_);
-    }
     if (!getJobIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, jobId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, jobId_);
     }
     unknownFields.writeTo(output);
   }
@@ -415,12 +396,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getUpdatedWhen());
     }
-    if (count_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, count_);
-    }
     if (!getJobIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, jobId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, jobId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -452,8 +429,6 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedWhen()
           .equals(other.getUpdatedWhen())) return false;
     }
-    if (getCount()
-        != other.getCount()) return false;
     if (!getJobId()
         .equals(other.getJobId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -483,8 +458,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATED_WHEN_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedWhen().hashCode();
     }
-    hash = (37 * hash) + COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getCount();
     hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
     hash = (53 * hash) + getJobId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -636,8 +609,6 @@ private static final long serialVersionUID = 0L;
         updatedWhen_ = null;
         updatedWhenBuilder_ = null;
       }
-      count_ = 0;
-
       jobId_ = "";
 
       return this;
@@ -676,7 +647,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedWhen_ = updatedWhenBuilder_.build();
       }
-      result.count_ = count_;
       result.jobId_ = jobId_;
       onBuilt();
       return result;
@@ -746,9 +716,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedWhen()) {
         mergeUpdatedWhen(other.getUpdatedWhen());
-      }
-      if (other.getCount() != 0) {
-        setCount(other.getCount());
       }
       if (!other.getJobId().isEmpty()) {
         jobId_ = other.jobId_;
@@ -1192,40 +1159,9 @@ private static final long serialVersionUID = 0L;
       return updatedWhenBuilder_;
     }
 
-    private int count_ ;
-    /**
-     * <code>int32 count = 7;</code>
-     * @return The count.
-     */
-    @java.lang.Override
-    public int getCount() {
-      return count_;
-    }
-    /**
-     * <code>int32 count = 7;</code>
-     * @param value The count to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCount(int value) {
-      
-      count_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 count = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCount() {
-      
-      count_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object jobId_ = "";
     /**
-     * <code>string job_id = 8;</code>
+     * <code>string job_id = 7;</code>
      * @return The jobId.
      */
     public java.lang.String getJobId() {
@@ -1241,7 +1177,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job_id = 8;</code>
+     * <code>string job_id = 7;</code>
      * @return The bytes for jobId.
      */
     public com.google.protobuf.ByteString
@@ -1258,7 +1194,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job_id = 8;</code>
+     * <code>string job_id = 7;</code>
      * @param value The jobId to set.
      * @return This builder for chaining.
      */
@@ -1273,7 +1209,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job_id = 8;</code>
+     * <code>string job_id = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearJobId() {
@@ -1283,7 +1219,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job_id = 8;</code>
+     * <code>string job_id = 7;</code>
      * @param value The bytes for jobId to set.
      * @return This builder for chaining.
      */

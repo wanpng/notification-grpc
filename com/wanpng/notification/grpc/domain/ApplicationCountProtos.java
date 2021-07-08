@@ -30,14 +30,14 @@ public final class ApplicationCountProtos {
     java.lang.String[] descriptorData = {
       "\n(protos/domain/applicant_count.grpc.pro" +
       "to\022\rprotos.domain\032\037google/protobuf/times" +
-      "tamp.proto\"\271\001\n\016ApplicantCount\022\017\n\007user_id" +
+      "tamp.proto\"\252\001\n\016ApplicantCount\022\017\n\007user_id" +
       "\030\001 \001(\t\022\023\n\013employer_id\030\002 \001(\t\022\014\n\004type\030\003 \001(" +
       "\t\022\021\n\tis_viewed\030\004 \001(\010\022\017\n\007is_seen\030\005 \001(\010\0220\n" +
       "\014updated_when\030\006 \001(\0132\032.google.protobuf.Ti" +
-      "mestamp\022\r\n\005count\030\007 \001(\005\022\016\n\006job_id\030\010 \001(\tBp" +
-      "\n#com.wanpng.notification.grpc.domainB\026A" +
-      "pplicationCountProtosP\001Z/github.com/wanp" +
-      "ng/notification-grpc/grpc/domainb\006proto3"
+      "mestamp\022\016\n\006job_id\030\007 \001(\tBp\n#com.wanpng.no" +
+      "tification.grpc.domainB\026ApplicationCount" +
+      "ProtosP\001Z/github.com/wanpng/notification" +
+      "-grpc/grpc/domainb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -49,7 +49,7 @@ public final class ApplicationCountProtos {
     internal_static_protos_domain_ApplicantCount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_domain_ApplicantCount_descriptor,
-        new java.lang.String[] { "UserId", "EmployerId", "Type", "IsViewed", "IsSeen", "UpdatedWhen", "Count", "JobId", });
+        new java.lang.String[] { "UserId", "EmployerId", "Type", "IsViewed", "IsSeen", "UpdatedWhen", "JobId", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 
