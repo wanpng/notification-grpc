@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private NotifyApplicationStatusChangeResponse() {
-    id_ = "";
+    status_ = "";
   }
 
   @java.lang.Override
@@ -49,10 +49,15 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            statusId_ = input.readInt32();
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = s;
+            status_ = s;
             break;
           }
           default: {
@@ -87,38 +92,49 @@ private static final long serialVersionUID = 0L;
             com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse.class, com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  public static final int STATUSID_FIELD_NUMBER = 1;
+  private int statusId_;
   /**
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>int32 statusId = 1;</code>
+   * @return The statusId.
    */
   @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
+  public int getStatusId() {
+    return statusId_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 2;
+  private volatile java.lang.Object status_;
+  /**
+   * <code>string status = 2;</code>
+   * @return The status.
+   */
+  @java.lang.Override
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      id_ = s;
+      status_ = s;
       return s;
     }
   }
   /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string status = 2;</code>
+   * @return The bytes for status.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
+      getStatusBytes() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      id_ = b;
+      status_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -139,8 +155,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+    if (statusId_ != 0) {
+      output.writeInt32(1, statusId_);
+    }
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -151,8 +170,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+    if (statusId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, statusId_);
+    }
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -169,8 +192,10 @@ private static final long serialVersionUID = 0L;
     }
     com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse other = (com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
+    if (getStatusId()
+        != other.getStatusId()) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -182,8 +207,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + STATUSID_FIELD_NUMBER;
+    hash = (53 * hash) + getStatusId();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -317,7 +344,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = "";
+      statusId_ = 0;
+
+      status_ = "";
 
       return this;
     }
@@ -345,7 +374,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse buildPartial() {
       com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse result = new com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse(this);
-      result.id_ = id_;
+      result.statusId_ = statusId_;
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -394,8 +424,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse other) {
       if (other == com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
+      if (other.getStatusId() != 0) {
+        setStatusId(other.getStatusId());
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -427,78 +460,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private int statusId_ ;
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>int32 statusId = 1;</code>
+     * @return The statusId.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
+    @java.lang.Override
+    public int getStatusId() {
+      return statusId_;
+    }
+    /**
+     * <code>int32 statusId = 1;</code>
+     * @param value The statusId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusId(int value) {
+      
+      statusId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 statusId = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatusId() {
+      
+      statusId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <code>string status = 2;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        id_ = s;
+        status_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
      */
     public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
+        getStatusBytes() {
+      java.lang.Object ref = status_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        id_ = b;
+        status_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string id = 1;</code>
-     * @param value The id to set.
+     * <code>string status = 2;</code>
+     * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setId(
+    public Builder setStatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      id_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1;</code>
+     * <code>string status = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearId() {
+    public Builder clearStatus() {
       
-      id_ = getDefaultInstance().getId();
+      status_ = getDefaultInstance().getStatus();
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1;</code>
-     * @param value The bytes for id to set.
+     * <code>string status = 2;</code>
+     * @param value The bytes for status to set.
      * @return This builder for chaining.
      */
-    public Builder setIdBytes(
+    public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      id_ = value;
+      status_ = value;
       onChanged();
       return this;
     }

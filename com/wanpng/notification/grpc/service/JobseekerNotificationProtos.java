@@ -46,18 +46,19 @@ public final class JobseekerNotificationProtos {
       "Response\022\n\n\002id\030\001 \001(\t\"p\n$NotifyApplicatio" +
       "nStatusChangeRequest\022H\n\030applicationStatu" +
       "sChanges\030\001 \003(\0132&.protos.domain.Applicati" +
-      "onStatusChange\"3\n%NotifyApplicationStatu" +
-      "sChangeResponse\022\n\n\002id\030\001 \001(\t2\226\002\n\034Jobseeke" +
-      "rNotificationService\022g\n\020NotifyInvitation" +
-      "\022 .protos.domain.InvitationRequest\0321.pro" +
-      "tos.service.NotifyJobseekerInvitationRes" +
-      "ponse\022\214\001\n\035NotifyApplicationStatusChange\022" +
-      "4.protos.service.NotifyApplicationStatus" +
-      "ChangeRequest\0325.protos.service.NotifyApp" +
-      "licationStatusChangeResponseBw\n$com.wanp" +
-      "ng.notification.grpc.serviceB\033JobseekerN" +
-      "otificationProtosP\001Z0github.com/wanpng/n" +
-      "otification-grpc/grpc/serviceb\006proto3"
+      "onStatusChange\"I\n%NotifyApplicationStatu" +
+      "sChangeResponse\022\020\n\010statusId\030\001 \001(\005\022\016\n\006sta" +
+      "tus\030\002 \001(\t2\226\002\n\034JobseekerNotificationServi" +
+      "ce\022g\n\020NotifyInvitation\022 .protos.domain.I" +
+      "nvitationRequest\0321.protos.service.Notify" +
+      "JobseekerInvitationResponse\022\214\001\n\035NotifyAp" +
+      "plicationStatusChange\0224.protos.service.N" +
+      "otifyApplicationStatusChangeRequest\0325.pr" +
+      "otos.service.NotifyApplicationStatusChan" +
+      "geResponseBw\n$com.wanpng.notification.gr" +
+      "pc.serviceB\033JobseekerNotificationProtosP" +
+      "\001Z0github.com/wanpng/notification-grpc/g" +
+      "rpc/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -82,7 +83,7 @@ public final class JobseekerNotificationProtos {
     internal_static_protos_service_NotifyApplicationStatusChangeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "StatusId", "Status", });
     com.wanpng.notification.grpc.domain.InvitationRequestProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.ApplicationStatusChangeProtos.getDescriptor();
   }

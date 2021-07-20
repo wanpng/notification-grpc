@@ -8,14 +8,20 @@ public interface NotifyApplicationStatusChangeResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>int32 statusId = 1;</code>
+   * @return The statusId.
    */
-  java.lang.String getId();
+  int getStatusId();
+
   /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string status = 2;</code>
+   * @return The status.
+   */
+  java.lang.String getStatus();
+  /**
+   * <code>string status = 2;</code>
+   * @return The bytes for status.
    */
   com.google.protobuf.ByteString
-      getIdBytes();
+      getStatusBytes();
 }
