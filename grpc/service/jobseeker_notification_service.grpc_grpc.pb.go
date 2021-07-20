@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type JobseekerNotificationServiceClient interface {
 	NotifyInvitation(ctx context.Context, in *domain.InvitationRequest, opts ...grpc.CallOption) (*NotifyJobseekerInvitationResponse, error)
-	NotifyApplicationStatusChange(ctx context.Context, in *domain.ApplicationStatusChange, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error)
+	NotifyApplicationStatusChange(ctx context.Context, in *NotifyApplicationStatusChangeRequest, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error)
 }
 
 type jobseekerNotificationServiceClient struct {
@@ -40,7 +40,7 @@ func (c *jobseekerNotificationServiceClient) NotifyInvitation(ctx context.Contex
 	return out, nil
 }
 
-func (c *jobseekerNotificationServiceClient) NotifyApplicationStatusChange(ctx context.Context, in *domain.ApplicationStatusChange, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error) {
+func (c *jobseekerNotificationServiceClient) NotifyApplicationStatusChange(ctx context.Context, in *NotifyApplicationStatusChangeRequest, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error) {
 	out := new(NotifyApplicationStatusChangeResponse)
 	err := c.cc.Invoke(ctx, "/protos.service.JobseekerNotificationService/NotifyApplicationStatusChange", in, out, opts...)
 	if err != nil {
@@ -54,7 +54,7 @@ func (c *jobseekerNotificationServiceClient) NotifyApplicationStatusChange(ctx c
 // for forward compatibility
 type JobseekerNotificationServiceServer interface {
 	NotifyInvitation(context.Context, *domain.InvitationRequest) (*NotifyJobseekerInvitationResponse, error)
-	NotifyApplicationStatusChange(context.Context, *domain.ApplicationStatusChange) (*NotifyApplicationStatusChangeResponse, error)
+	NotifyApplicationStatusChange(context.Context, *NotifyApplicationStatusChangeRequest) (*NotifyApplicationStatusChangeResponse, error)
 	mustEmbedUnimplementedJobseekerNotificationServiceServer()
 }
 
@@ -65,7 +65,7 @@ type UnimplementedJobseekerNotificationServiceServer struct {
 func (UnimplementedJobseekerNotificationServiceServer) NotifyInvitation(context.Context, *domain.InvitationRequest) (*NotifyJobseekerInvitationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyInvitation not implemented")
 }
-func (UnimplementedJobseekerNotificationServiceServer) NotifyApplicationStatusChange(context.Context, *domain.ApplicationStatusChange) (*NotifyApplicationStatusChangeResponse, error) {
+func (UnimplementedJobseekerNotificationServiceServer) NotifyApplicationStatusChange(context.Context, *NotifyApplicationStatusChangeRequest) (*NotifyApplicationStatusChangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyApplicationStatusChange not implemented")
 }
 func (UnimplementedJobseekerNotificationServiceServer) mustEmbedUnimplementedJobseekerNotificationServiceServer() {
@@ -101,7 +101,7 @@ func _JobseekerNotificationService_NotifyInvitation_Handler(srv interface{}, ctx
 }
 
 func _JobseekerNotificationService_NotifyApplicationStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(domain.ApplicationStatusChange)
+	in := new(NotifyApplicationStatusChangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -113,7 +113,7 @@ func _JobseekerNotificationService_NotifyApplicationStatusChange_Handler(srv int
 		FullMethod: "/protos.service.JobseekerNotificationService/NotifyApplicationStatusChange",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobseekerNotificationServiceServer).NotifyApplicationStatusChange(ctx, req.(*domain.ApplicationStatusChange))
+		return srv.(JobseekerNotificationServiceServer).NotifyApplicationStatusChange(ctx, req.(*NotifyApplicationStatusChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

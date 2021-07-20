@@ -20,6 +20,11 @@ public final class JobseekerNotificationProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_service_NotifyJobseekerInvitationResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_NotifyApplicationStatusChangeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_NotifyApplicationStatusChangeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -38,18 +43,21 @@ public final class JobseekerNotificationProtos {
       "os/domain/invitation_request.grpc.proto\032" +
       "2protos/domain/application_status_change" +
       ".grpc.proto\"/\n!NotifyJobseekerInvitation" +
-      "Response\022\n\n\002id\030\001 \001(\t\"3\n%NotifyApplicatio" +
-      "nStatusChangeResponse\022\n\n\002id\030\001 \001(\t2\207\002\n\034Jo" +
-      "bseekerNotificationService\022g\n\020NotifyInvi" +
-      "tation\022 .protos.domain.InvitationRequest" +
-      "\0321.protos.service.NotifyJobseekerInvitat" +
-      "ionResponse\022~\n\035NotifyApplicationStatusCh" +
-      "ange\022&.protos.domain.ApplicationStatusCh" +
-      "ange\0325.protos.service.NotifyApplicationS" +
-      "tatusChangeResponseBw\n$com.wanpng.notifi" +
-      "cation.grpc.serviceB\033JobseekerNotificati" +
-      "onProtosP\001Z0github.com/wanpng/notificati" +
-      "on-grpc/grpc/serviceb\006proto3"
+      "Response\022\n\n\002id\030\001 \001(\t\"p\n$NotifyApplicatio" +
+      "nStatusChangeRequest\022H\n\030applicationStatu" +
+      "sChanges\030\001 \003(\0132&.protos.domain.Applicati" +
+      "onStatusChange\"3\n%NotifyApplicationStatu" +
+      "sChangeResponse\022\n\n\002id\030\001 \001(\t2\226\002\n\034Jobseeke" +
+      "rNotificationService\022g\n\020NotifyInvitation" +
+      "\022 .protos.domain.InvitationRequest\0321.pro" +
+      "tos.service.NotifyJobseekerInvitationRes" +
+      "ponse\022\214\001\n\035NotifyApplicationStatusChange\022" +
+      "4.protos.service.NotifyApplicationStatus" +
+      "ChangeRequest\0325.protos.service.NotifyApp" +
+      "licationStatusChangeResponseBw\n$com.wanp" +
+      "ng.notification.grpc.serviceB\033JobseekerN" +
+      "otificationProtosP\001Z0github.com/wanpng/n" +
+      "otification-grpc/grpc/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63,8 +71,14 @@ public final class JobseekerNotificationProtos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_NotifyJobseekerInvitationResponse_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor =
+    internal_static_protos_service_NotifyApplicationStatusChangeRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_protos_service_NotifyApplicationStatusChangeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_NotifyApplicationStatusChangeRequest_descriptor,
+        new java.lang.String[] { "ApplicationStatusChanges", });
+    internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_protos_service_NotifyApplicationStatusChangeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor,

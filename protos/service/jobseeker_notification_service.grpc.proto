@@ -12,11 +12,15 @@ import "protos/domain/application_status_change.grpc.proto";
 
 service JobseekerNotificationService {
     rpc NotifyInvitation(protos.domain.InvitationRequest) returns (NotifyJobseekerInvitationResponse);
-    rpc NotifyApplicationStatusChange(protos.domain.ApplicationStatusChange) returns (NotifyApplicationStatusChangeResponse);
+    rpc NotifyApplicationStatusChange(NotifyApplicationStatusChangeRequest) returns (NotifyApplicationStatusChangeResponse);
 }
 
 message NotifyJobseekerInvitationResponse {
     string id = 1;
+}
+
+message NotifyApplicationStatusChangeRequest {
+    repeated protos.domain.ApplicationStatusChange applicationStatusChanges = 1;
 }
 
 message NotifyApplicationStatusChangeResponse {

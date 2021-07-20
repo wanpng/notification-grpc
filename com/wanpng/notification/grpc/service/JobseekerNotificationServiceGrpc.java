@@ -45,27 +45,27 @@ public final class JobseekerNotificationServiceGrpc {
     return getNotifyInvitationMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.ApplicationStatusChange,
+  private static volatile io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest,
       com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> getNotifyApplicationStatusChangeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "NotifyApplicationStatusChange",
-      requestType = com.wanpng.notification.grpc.domain.ApplicationStatusChange.class,
+      requestType = com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest.class,
       responseType = com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.ApplicationStatusChange,
+  public static io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest,
       com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> getNotifyApplicationStatusChangeMethod() {
-    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.ApplicationStatusChange, com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> getNotifyApplicationStatusChangeMethod;
+    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest, com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> getNotifyApplicationStatusChangeMethod;
     if ((getNotifyApplicationStatusChangeMethod = JobseekerNotificationServiceGrpc.getNotifyApplicationStatusChangeMethod) == null) {
       synchronized (JobseekerNotificationServiceGrpc.class) {
         if ((getNotifyApplicationStatusChangeMethod = JobseekerNotificationServiceGrpc.getNotifyApplicationStatusChangeMethod) == null) {
           JobseekerNotificationServiceGrpc.getNotifyApplicationStatusChangeMethod = getNotifyApplicationStatusChangeMethod =
-              io.grpc.MethodDescriptor.<com.wanpng.notification.grpc.domain.ApplicationStatusChange, com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest, com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyApplicationStatusChange"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.wanpng.notification.grpc.domain.ApplicationStatusChange.getDefaultInstance()))
+                  com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse.getDefaultInstance()))
               .setSchemaDescriptor(new JobseekerNotificationServiceMethodDescriptorSupplier("NotifyApplicationStatusChange"))
@@ -133,7 +133,7 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public void notifyApplicationStatusChange(com.wanpng.notification.grpc.domain.ApplicationStatusChange request,
+    public void notifyApplicationStatusChange(com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest request,
         io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyApplicationStatusChangeMethod(), responseObserver);
     }
@@ -151,7 +151,7 @@ public final class JobseekerNotificationServiceGrpc {
             getNotifyApplicationStatusChangeMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.wanpng.notification.grpc.domain.ApplicationStatusChange,
+                com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest,
                 com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse>(
                   this, METHODID_NOTIFY_APPLICATION_STATUS_CHANGE)))
           .build();
@@ -182,7 +182,7 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public void notifyApplicationStatusChange(com.wanpng.notification.grpc.domain.ApplicationStatusChange request,
+    public void notifyApplicationStatusChange(com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest request,
         io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getNotifyApplicationStatusChangeMethod(), getCallOptions()), request, responseObserver);
@@ -212,7 +212,7 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse notifyApplicationStatusChange(com.wanpng.notification.grpc.domain.ApplicationStatusChange request) {
+    public com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse notifyApplicationStatusChange(com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getNotifyApplicationStatusChangeMethod(), getCallOptions(), request);
     }
@@ -243,7 +243,7 @@ public final class JobseekerNotificationServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse> notifyApplicationStatusChange(
-        com.wanpng.notification.grpc.domain.ApplicationStatusChange request) {
+        com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getNotifyApplicationStatusChangeMethod(), getCallOptions()), request);
     }
@@ -274,7 +274,7 @@ public final class JobseekerNotificationServiceGrpc {
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyJobseekerInvitationResponse>) responseObserver);
           break;
         case METHODID_NOTIFY_APPLICATION_STATUS_CHANGE:
-          serviceImpl.notifyApplicationStatusChange((com.wanpng.notification.grpc.domain.ApplicationStatusChange) request,
+          serviceImpl.notifyApplicationStatusChange((com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeRequest) request,
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyApplicationStatusChangeResponse>) responseObserver);
           break;
         default:
