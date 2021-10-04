@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type JobseekerNotificationServiceClient interface {
 	NotifyInvitation(ctx context.Context, in *domain.InvitationRequest, opts ...grpc.CallOption) (*NotifyJobseekerInvitationResponse, error)
 	NotifyApplicationStatusChange(ctx context.Context, in *NotifyApplicationStatusChangeRequest, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error)
+	NotifyInterviewSchedule(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
 }
 
 type jobseekerNotificationServiceClient struct {
@@ -49,12 +50,22 @@ func (c *jobseekerNotificationServiceClient) NotifyApplicationStatusChange(ctx c
 	return out, nil
 }
 
+func (c *jobseekerNotificationServiceClient) NotifyInterviewSchedule(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	out := new(NotifyJobseekerInterviewScheduleResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.JobseekerNotificationService/NotifyInterviewSchedule", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JobseekerNotificationServiceServer is the server API for JobseekerNotificationService service.
 // All implementations must embed UnimplementedJobseekerNotificationServiceServer
 // for forward compatibility
 type JobseekerNotificationServiceServer interface {
 	NotifyInvitation(context.Context, *domain.InvitationRequest) (*NotifyJobseekerInvitationResponse, error)
 	NotifyApplicationStatusChange(context.Context, *NotifyApplicationStatusChangeRequest) (*NotifyApplicationStatusChangeResponse, error)
+	NotifyInterviewSchedule(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
 	mustEmbedUnimplementedJobseekerNotificationServiceServer()
 }
 
@@ -67,6 +78,9 @@ func (UnimplementedJobseekerNotificationServiceServer) NotifyInvitation(context.
 }
 func (UnimplementedJobseekerNotificationServiceServer) NotifyApplicationStatusChange(context.Context, *NotifyApplicationStatusChangeRequest) (*NotifyApplicationStatusChangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyApplicationStatusChange not implemented")
+}
+func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewSchedule(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewSchedule not implemented")
 }
 func (UnimplementedJobseekerNotificationServiceServer) mustEmbedUnimplementedJobseekerNotificationServiceServer() {
 }
@@ -118,6 +132,24 @@ func _JobseekerNotificationService_NotifyApplicationStatusChange_Handler(srv int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JobseekerNotificationService_NotifyInterviewSchedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(domain.JobseekerInterviewSchedule)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewSchedule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.JobseekerNotificationService/NotifyInterviewSchedule",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewSchedule(ctx, req.(*domain.JobseekerInterviewSchedule))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // JobseekerNotificationService_ServiceDesc is the grpc.ServiceDesc for JobseekerNotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -132,6 +164,10 @@ var JobseekerNotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NotifyApplicationStatusChange",
 			Handler:    _JobseekerNotificationService_NotifyApplicationStatusChange_Handler,
+		},
+		{
+			MethodName: "NotifyInterviewSchedule",
+			Handler:    _JobseekerNotificationService_NotifyInterviewSchedule_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

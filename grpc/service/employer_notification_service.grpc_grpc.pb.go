@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type EmployerNotificationServiceClient interface {
 	NotifyInvitation(ctx context.Context, in *domain.InvitationResponse, opts ...grpc.CallOption) (*NotifyEmployerInvitationResponse, error)
 	NotifyApplicantCount(ctx context.Context, in *domain.ApplicantCount, opts ...grpc.CallOption) (*NotifyApplicantCountResponse, error)
+	NotifyInterviewSchedule(ctx context.Context, in *domain.EmployerInterviewSchedule, opts ...grpc.CallOption) (*NotifyEmployerInterviewScheduleResponse, error)
 }
 
 type employerNotificationServiceClient struct {
@@ -49,12 +50,22 @@ func (c *employerNotificationServiceClient) NotifyApplicantCount(ctx context.Con
 	return out, nil
 }
 
+func (c *employerNotificationServiceClient) NotifyInterviewSchedule(ctx context.Context, in *domain.EmployerInterviewSchedule, opts ...grpc.CallOption) (*NotifyEmployerInterviewScheduleResponse, error) {
+	out := new(NotifyEmployerInterviewScheduleResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.EmployerNotificationService/NotifyInterviewSchedule", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // EmployerNotificationServiceServer is the server API for EmployerNotificationService service.
 // All implementations must embed UnimplementedEmployerNotificationServiceServer
 // for forward compatibility
 type EmployerNotificationServiceServer interface {
 	NotifyInvitation(context.Context, *domain.InvitationResponse) (*NotifyEmployerInvitationResponse, error)
 	NotifyApplicantCount(context.Context, *domain.ApplicantCount) (*NotifyApplicantCountResponse, error)
+	NotifyInterviewSchedule(context.Context, *domain.EmployerInterviewSchedule) (*NotifyEmployerInterviewScheduleResponse, error)
 	mustEmbedUnimplementedEmployerNotificationServiceServer()
 }
 
@@ -67,6 +78,9 @@ func (UnimplementedEmployerNotificationServiceServer) NotifyInvitation(context.C
 }
 func (UnimplementedEmployerNotificationServiceServer) NotifyApplicantCount(context.Context, *domain.ApplicantCount) (*NotifyApplicantCountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyApplicantCount not implemented")
+}
+func (UnimplementedEmployerNotificationServiceServer) NotifyInterviewSchedule(context.Context, *domain.EmployerInterviewSchedule) (*NotifyEmployerInterviewScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewSchedule not implemented")
 }
 func (UnimplementedEmployerNotificationServiceServer) mustEmbedUnimplementedEmployerNotificationServiceServer() {
 }
@@ -118,6 +132,24 @@ func _EmployerNotificationService_NotifyApplicantCount_Handler(srv interface{}, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _EmployerNotificationService_NotifyInterviewSchedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(domain.EmployerInterviewSchedule)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmployerNotificationServiceServer).NotifyInterviewSchedule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.EmployerNotificationService/NotifyInterviewSchedule",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmployerNotificationServiceServer).NotifyInterviewSchedule(ctx, req.(*domain.EmployerInterviewSchedule))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // EmployerNotificationService_ServiceDesc is the grpc.ServiceDesc for EmployerNotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -132,6 +164,10 @@ var EmployerNotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NotifyApplicantCount",
 			Handler:    _EmployerNotificationService_NotifyApplicantCount_Handler,
+		},
+		{
+			MethodName: "NotifyInterviewSchedule",
+			Handler:    _EmployerNotificationService_NotifyInterviewSchedule_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

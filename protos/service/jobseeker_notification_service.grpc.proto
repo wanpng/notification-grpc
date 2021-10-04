@@ -9,10 +9,12 @@ option java_outer_classname = "JobseekerNotificationProtos";
 
 import "protos/domain/invitation_request.grpc.proto";
 import "protos/domain/application_status_change.grpc.proto";
+import "protos/domain/jobseeker_interview_schedule.proto";
 
 service JobseekerNotificationService {
     rpc NotifyInvitation(protos.domain.InvitationRequest) returns (NotifyJobseekerInvitationResponse);
     rpc NotifyApplicationStatusChange(NotifyApplicationStatusChangeRequest) returns (NotifyApplicationStatusChangeResponse);
+    rpc NotifyInterviewSchedule(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
 }
 
 message NotifyJobseekerInvitationResponse {
@@ -26,4 +28,8 @@ message NotifyApplicationStatusChangeRequest {
 message NotifyApplicationStatusChangeResponse {
     int32 statusId = 1;
     string status = 2;
+}
+
+message NotifyJobseekerInterviewScheduleResponse {
+    string id = 1;
 }

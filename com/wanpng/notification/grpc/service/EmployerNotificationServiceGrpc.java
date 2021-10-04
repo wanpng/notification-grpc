@@ -76,6 +76,37 @@ public final class EmployerNotificationServiceGrpc {
     return getNotifyApplicantCountMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.EmployerInterviewSchedule,
+      com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> getNotifyInterviewScheduleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "NotifyInterviewSchedule",
+      requestType = com.wanpng.notification.grpc.domain.EmployerInterviewSchedule.class,
+      responseType = com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.EmployerInterviewSchedule,
+      com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> getNotifyInterviewScheduleMethod() {
+    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.EmployerInterviewSchedule, com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> getNotifyInterviewScheduleMethod;
+    if ((getNotifyInterviewScheduleMethod = EmployerNotificationServiceGrpc.getNotifyInterviewScheduleMethod) == null) {
+      synchronized (EmployerNotificationServiceGrpc.class) {
+        if ((getNotifyInterviewScheduleMethod = EmployerNotificationServiceGrpc.getNotifyInterviewScheduleMethod) == null) {
+          EmployerNotificationServiceGrpc.getNotifyInterviewScheduleMethod = getNotifyInterviewScheduleMethod =
+              io.grpc.MethodDescriptor.<com.wanpng.notification.grpc.domain.EmployerInterviewSchedule, com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyInterviewSchedule"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.notification.grpc.domain.EmployerInterviewSchedule.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EmployerNotificationServiceMethodDescriptorSupplier("NotifyInterviewSchedule"))
+              .build();
+        }
+      }
+    }
+    return getNotifyInterviewScheduleMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class EmployerNotificationServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyApplicantCountMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void notifyInterviewSchedule(com.wanpng.notification.grpc.domain.EmployerInterviewSchedule request,
+        io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyInterviewScheduleMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -154,6 +192,13 @@ public final class EmployerNotificationServiceGrpc {
                 com.wanpng.notification.grpc.domain.ApplicantCount,
                 com.wanpng.notification.grpc.service.NotifyApplicantCountResponse>(
                   this, METHODID_NOTIFY_APPLICANT_COUNT)))
+          .addMethod(
+            getNotifyInterviewScheduleMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.wanpng.notification.grpc.domain.EmployerInterviewSchedule,
+                com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse>(
+                  this, METHODID_NOTIFY_INTERVIEW_SCHEDULE)))
           .build();
     }
   }
@@ -187,6 +232,14 @@ public final class EmployerNotificationServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getNotifyApplicantCountMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void notifyInterviewSchedule(com.wanpng.notification.grpc.domain.EmployerInterviewSchedule request,
+        io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getNotifyInterviewScheduleMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -215,6 +268,13 @@ public final class EmployerNotificationServiceGrpc {
     public com.wanpng.notification.grpc.service.NotifyApplicantCountResponse notifyApplicantCount(com.wanpng.notification.grpc.domain.ApplicantCount request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getNotifyApplicantCountMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse notifyInterviewSchedule(com.wanpng.notification.grpc.domain.EmployerInterviewSchedule request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyInterviewScheduleMethod(), getCallOptions(), request);
     }
   }
 
@@ -247,10 +307,19 @@ public final class EmployerNotificationServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getNotifyApplicantCountMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse> notifyInterviewSchedule(
+        com.wanpng.notification.grpc.domain.EmployerInterviewSchedule request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getNotifyInterviewScheduleMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_NOTIFY_INVITATION = 0;
   private static final int METHODID_NOTIFY_APPLICANT_COUNT = 1;
+  private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -276,6 +345,10 @@ public final class EmployerNotificationServiceGrpc {
         case METHODID_NOTIFY_APPLICANT_COUNT:
           serviceImpl.notifyApplicantCount((com.wanpng.notification.grpc.domain.ApplicantCount) request,
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyApplicantCountResponse>) responseObserver);
+          break;
+        case METHODID_NOTIFY_INTERVIEW_SCHEDULE:
+          serviceImpl.notifyInterviewSchedule((com.wanpng.notification.grpc.domain.EmployerInterviewSchedule) request,
+              (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyEmployerInterviewScheduleResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -340,6 +413,7 @@ public final class EmployerNotificationServiceGrpc {
               .setSchemaDescriptor(new EmployerNotificationServiceFileDescriptorSupplier())
               .addMethod(getNotifyInvitationMethod())
               .addMethod(getNotifyApplicantCountMethod())
+              .addMethod(getNotifyInterviewScheduleMethod())
               .build();
         }
       }

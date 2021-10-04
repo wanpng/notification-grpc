@@ -29,6 +29,11 @@ public final class JobseekerNotificationProtos {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_service_NotifyApplicationStatusChangeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -42,29 +47,36 @@ public final class JobseekerNotificationProtos {
       "service.grpc.proto\022\016protos.service\032+prot" +
       "os/domain/invitation_request.grpc.proto\032" +
       "2protos/domain/application_status_change" +
-      ".grpc.proto\"/\n!NotifyJobseekerInvitation" +
-      "Response\022\n\n\002id\030\001 \001(\t\"p\n$NotifyApplicatio" +
-      "nStatusChangeRequest\022H\n\030applicationStatu" +
-      "sChanges\030\001 \003(\0132&.protos.domain.Applicati" +
-      "onStatusChange\"I\n%NotifyApplicationStatu" +
-      "sChangeResponse\022\020\n\010statusId\030\001 \001(\005\022\016\n\006sta" +
-      "tus\030\002 \001(\t2\226\002\n\034JobseekerNotificationServi" +
-      "ce\022g\n\020NotifyInvitation\022 .protos.domain.I" +
-      "nvitationRequest\0321.protos.service.Notify" +
-      "JobseekerInvitationResponse\022\214\001\n\035NotifyAp" +
-      "plicationStatusChange\0224.protos.service.N" +
-      "otifyApplicationStatusChangeRequest\0325.pr" +
-      "otos.service.NotifyApplicationStatusChan" +
-      "geResponseBw\n$com.wanpng.notification.gr" +
-      "pc.serviceB\033JobseekerNotificationProtosP" +
-      "\001Z0github.com/wanpng/notification-grpc/g" +
-      "rpc/serviceb\006proto3"
+      ".grpc.proto\0320protos/domain/jobseeker_int" +
+      "erview_schedule.proto\"/\n!NotifyJobseeker" +
+      "InvitationResponse\022\n\n\002id\030\001 \001(\t\"p\n$Notify" +
+      "ApplicationStatusChangeRequest\022H\n\030applic" +
+      "ationStatusChanges\030\001 \003(\0132&.protos.domain" +
+      ".ApplicationStatusChange\"I\n%NotifyApplic" +
+      "ationStatusChangeResponse\022\020\n\010statusId\030\001 " +
+      "\001(\005\022\016\n\006status\030\002 \001(\t\"6\n(NotifyJobseekerIn" +
+      "terviewScheduleResponse\022\n\n\002id\030\001 \001(\t2\226\003\n\034" +
+      "JobseekerNotificationService\022g\n\020NotifyIn" +
+      "vitation\022 .protos.domain.InvitationReque" +
+      "st\0321.protos.service.NotifyJobseekerInvit" +
+      "ationResponse\022\214\001\n\035NotifyApplicationStatu" +
+      "sChange\0224.protos.service.NotifyApplicati" +
+      "onStatusChangeRequest\0325.protos.service.N" +
+      "otifyApplicationStatusChangeResponse\022~\n\027" +
+      "NotifyInterviewSchedule\022).protos.domain." +
+      "JobseekerInterviewSchedule\0328.protos.serv" +
+      "ice.NotifyJobseekerInterviewScheduleResp" +
+      "onseBw\n$com.wanpng.notification.grpc.ser" +
+      "viceB\033JobseekerNotificationProtosP\001Z0git" +
+      "hub.com/wanpng/notification-grpc/grpc/se" +
+      "rviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.wanpng.notification.grpc.domain.InvitationRequestProtos.getDescriptor(),
           com.wanpng.notification.grpc.domain.ApplicationStatusChangeProtos.getDescriptor(),
+          com.wanpng.notification.grpc.domain.JobseekerInterviewScheduleProtos.getDescriptor(),
         });
     internal_static_protos_service_NotifyJobseekerInvitationResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -84,8 +96,15 @@ public final class JobseekerNotificationProtos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_NotifyApplicationStatusChangeResponse_descriptor,
         new java.lang.String[] { "StatusId", "Status", });
+    internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_descriptor,
+        new java.lang.String[] { "Id", });
     com.wanpng.notification.grpc.domain.InvitationRequestProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.ApplicationStatusChangeProtos.getDescriptor();
+    com.wanpng.notification.grpc.domain.JobseekerInterviewScheduleProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -9,10 +9,12 @@ option java_outer_classname = "EmployerNotificationProtos";
 
 import "protos/domain/invitation_response.grpc.proto";
 import "protos/domain/applicant_count.grpc.proto";
+import "protos/domain/employer_interview_schedule.proto";
 
 service EmployerNotificationService {
     rpc NotifyInvitation(protos.domain.InvitationResponse) returns (NotifyEmployerInvitationResponse);
     rpc NotifyApplicantCount(protos.domain.ApplicantCount) returns (NotifyApplicantCountResponse);
+    rpc NotifyInterviewSchedule(protos.domain.EmployerInterviewSchedule) returns (NotifyEmployerInterviewScheduleResponse);
 }
 
 message NotifyEmployerInvitationResponse {
@@ -20,5 +22,9 @@ message NotifyEmployerInvitationResponse {
 }
 
 message NotifyApplicantCountResponse {
+    string id = 1;
+}
+
+message NotifyEmployerInterviewScheduleResponse {
     string id = 1;
 }

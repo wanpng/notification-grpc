@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package protos.domain;
+
+option go_package = "github.com/wanpng/notification-grpc/grpc/domain";
+option java_multiple_files = true;
+option java_package = "com.wanpng.notification.grpc.domain";
+option java_outer_classname = "JobseekerInterviewScheduleProtos";
+
+import "google/protobuf/timestamp.proto";
+
+message JobseekerInterviewSchedule {
+    string jobseeker_id = 1;
+    string type = 2;
+    bool is_viewed = 3;
+    bool is_seen = 4;
+    google.protobuf.Timestamp updated_when = 5;
+    string employer_id = 6;
+    string job_id = 7;
+}
