@@ -83,12 +83,36 @@ public interface JobseekerInterviewScheduleOrBuilder extends
       getEmployerIdBytes();
 
   /**
-   * <code>string job_id = 8;</code>
+   * <code>string employer_first_name = 8;</code>
+   * @return The employerFirstName.
+   */
+  java.lang.String getEmployerFirstName();
+  /**
+   * <code>string employer_first_name = 8;</code>
+   * @return The bytes for employerFirstName.
+   */
+  com.google.protobuf.ByteString
+      getEmployerFirstNameBytes();
+
+  /**
+   * <code>string employer_last_name = 9;</code>
+   * @return The employerLastName.
+   */
+  java.lang.String getEmployerLastName();
+  /**
+   * <code>string employer_last_name = 9;</code>
+   * @return The bytes for employerLastName.
+   */
+  com.google.protobuf.ByteString
+      getEmployerLastNameBytes();
+
+  /**
+   * <code>string job_id = 10;</code>
    * @return The jobId.
    */
   java.lang.String getJobId();
   /**
-   * <code>string job_id = 8;</code>
+   * <code>string job_id = 10;</code>
    * @return The bytes for jobId.
    */
   com.google.protobuf.ByteString

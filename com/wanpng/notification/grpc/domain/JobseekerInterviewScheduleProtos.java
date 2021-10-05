@@ -30,15 +30,17 @@ public final class JobseekerInterviewScheduleProtos {
     java.lang.String[] descriptorData = {
       "\n0protos/domain/jobseeker_interview_sche" +
       "dule.proto\022\rprotos.domain\032\037google/protob" +
-      "uf/timestamp.proto\"\314\001\n\032JobseekerIntervie" +
+      "uf/timestamp.proto\"\205\002\n\032JobseekerIntervie" +
       "wSchedule\022\024\n\014jobseeker_id\030\001 \001(\t\022\014\n\004type\030" +
       "\002 \001(\t\022\021\n\tis_viewed\030\003 \001(\010\022\017\n\007is_seen\030\004 \001(" +
       "\010\0220\n\014updated_when\030\005 \001(\0132\032.google.protobu" +
       "f.Timestamp\022\017\n\007user_id\030\006 \001(\t\022\023\n\013employer" +
-      "_id\030\007 \001(\t\022\016\n\006job_id\030\010 \001(\tBz\n#com.wanpng." +
-      "notification.grpc.domainB JobseekerInter" +
-      "viewScheduleProtosP\001Z/github.com/wanpng/" +
-      "notification-grpc/grpc/domainb\006proto3"
+      "_id\030\007 \001(\t\022\033\n\023employer_first_name\030\010 \001(\t\022\032" +
+      "\n\022employer_last_name\030\t \001(\t\022\016\n\006job_id\030\n \001" +
+      "(\tBz\n#com.wanpng.notification.grpc.domai" +
+      "nB JobseekerInterviewScheduleProtosP\001Z/g" +
+      "ithub.com/wanpng/notification-grpc/grpc/" +
+      "domainb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -50,7 +52,7 @@ public final class JobseekerInterviewScheduleProtos {
     internal_static_protos_domain_JobseekerInterviewSchedule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_domain_JobseekerInterviewSchedule_descriptor,
-        new java.lang.String[] { "JobseekerId", "Type", "IsViewed", "IsSeen", "UpdatedWhen", "UserId", "EmployerId", "JobId", });
+        new java.lang.String[] { "JobseekerId", "Type", "IsViewed", "IsSeen", "UpdatedWhen", "UserId", "EmployerId", "EmployerFirstName", "EmployerLastName", "JobId", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 
