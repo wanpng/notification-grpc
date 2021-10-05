@@ -22,6 +22,8 @@ type JobseekerNotificationServiceClient interface {
 	NotifyInvitation(ctx context.Context, in *domain.InvitationRequest, opts ...grpc.CallOption) (*NotifyJobseekerInvitationResponse, error)
 	NotifyApplicationStatusChange(ctx context.Context, in *NotifyApplicationStatusChangeRequest, opts ...grpc.CallOption) (*NotifyApplicationStatusChangeResponse, error)
 	NotifyInterviewSchedule(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleUpdated(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleCancelled(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
 }
 
 type jobseekerNotificationServiceClient struct {
@@ -59,6 +61,24 @@ func (c *jobseekerNotificationServiceClient) NotifyInterviewSchedule(ctx context
 	return out, nil
 }
 
+func (c *jobseekerNotificationServiceClient) NotifyInterviewScheduleUpdated(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	out := new(NotifyJobseekerInterviewScheduleResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.JobseekerNotificationService/NotifyInterviewScheduleUpdated", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *jobseekerNotificationServiceClient) NotifyInterviewScheduleCancelled(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	out := new(NotifyJobseekerInterviewScheduleResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.JobseekerNotificationService/NotifyInterviewScheduleCancelled", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JobseekerNotificationServiceServer is the server API for JobseekerNotificationService service.
 // All implementations must embed UnimplementedJobseekerNotificationServiceServer
 // for forward compatibility
@@ -66,6 +86,8 @@ type JobseekerNotificationServiceServer interface {
 	NotifyInvitation(context.Context, *domain.InvitationRequest) (*NotifyJobseekerInvitationResponse, error)
 	NotifyApplicationStatusChange(context.Context, *NotifyApplicationStatusChangeRequest) (*NotifyApplicationStatusChangeResponse, error)
 	NotifyInterviewSchedule(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleUpdated(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleCancelled(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
 	mustEmbedUnimplementedJobseekerNotificationServiceServer()
 }
 
@@ -81,6 +103,12 @@ func (UnimplementedJobseekerNotificationServiceServer) NotifyApplicationStatusCh
 }
 func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewSchedule(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewSchedule not implemented")
+}
+func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewScheduleUpdated(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewScheduleUpdated not implemented")
+}
+func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewScheduleCancelled(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewScheduleCancelled not implemented")
 }
 func (UnimplementedJobseekerNotificationServiceServer) mustEmbedUnimplementedJobseekerNotificationServiceServer() {
 }
@@ -150,6 +178,42 @@ func _JobseekerNotificationService_NotifyInterviewSchedule_Handler(srv interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JobseekerNotificationService_NotifyInterviewScheduleUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(domain.JobseekerInterviewSchedule)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewScheduleUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.JobseekerNotificationService/NotifyInterviewScheduleUpdated",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewScheduleUpdated(ctx, req.(*domain.JobseekerInterviewSchedule))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _JobseekerNotificationService_NotifyInterviewScheduleCancelled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(domain.JobseekerInterviewSchedule)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewScheduleCancelled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.JobseekerNotificationService/NotifyInterviewScheduleCancelled",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobseekerNotificationServiceServer).NotifyInterviewScheduleCancelled(ctx, req.(*domain.JobseekerInterviewSchedule))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // JobseekerNotificationService_ServiceDesc is the grpc.ServiceDesc for JobseekerNotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -168,6 +232,14 @@ var JobseekerNotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NotifyInterviewSchedule",
 			Handler:    _JobseekerNotificationService_NotifyInterviewSchedule_Handler,
+		},
+		{
+			MethodName: "NotifyInterviewScheduleUpdated",
+			Handler:    _JobseekerNotificationService_NotifyInterviewScheduleUpdated_Handler,
+		},
+		{
+			MethodName: "NotifyInterviewScheduleCancelled",
+			Handler:    _JobseekerNotificationService_NotifyInterviewScheduleCancelled_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

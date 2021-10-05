@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private JobseekerInterviewSchedule() {
     jobseekerId_ = "";
     type_ = "";
+    userId_ = "";
     employerId_ = "";
     jobId_ = "";
   }
@@ -90,10 +91,16 @@ private static final long serialVersionUID = 0L;
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            employerId_ = s;
+            userId_ = s;
             break;
           }
           case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            employerId_ = s;
+            break;
+          }
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             jobId_ = s;
@@ -255,10 +262,48 @@ private static final long serialVersionUID = 0L;
     return getUpdatedWhen();
   }
 
-  public static final int EMPLOYER_ID_FIELD_NUMBER = 6;
+  public static final int USER_ID_FIELD_NUMBER = 6;
+  private volatile java.lang.Object userId_;
+  /**
+   * <code>string user_id = 6;</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public java.lang.String getUserId() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string user_id = 6;</code>
+   * @return The bytes for userId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserIdBytes() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int EMPLOYER_ID_FIELD_NUMBER = 7;
   private volatile java.lang.Object employerId_;
   /**
-   * <code>string employer_id = 6;</code>
+   * <code>string employer_id = 7;</code>
    * @return The employerId.
    */
   @java.lang.Override
@@ -275,7 +320,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string employer_id = 6;</code>
+   * <code>string employer_id = 7;</code>
    * @return The bytes for employerId.
    */
   @java.lang.Override
@@ -293,10 +338,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int JOB_ID_FIELD_NUMBER = 7;
+  public static final int JOB_ID_FIELD_NUMBER = 8;
   private volatile java.lang.Object jobId_;
   /**
-   * <code>string job_id = 7;</code>
+   * <code>string job_id = 8;</code>
    * @return The jobId.
    */
   @java.lang.Override
@@ -313,7 +358,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string job_id = 7;</code>
+   * <code>string job_id = 8;</code>
    * @return The bytes for jobId.
    */
   @java.lang.Override
@@ -360,11 +405,14 @@ private static final long serialVersionUID = 0L;
     if (updatedWhen_ != null) {
       output.writeMessage(5, getUpdatedWhen());
     }
+    if (!getUserIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, userId_);
+    }
     if (!getEmployerIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, employerId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, employerId_);
     }
     if (!getJobIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, jobId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, jobId_);
     }
     unknownFields.writeTo(output);
   }
@@ -393,11 +441,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getUpdatedWhen());
     }
+    if (!getUserIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, userId_);
+    }
     if (!getEmployerIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, employerId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, employerId_);
     }
     if (!getJobIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, jobId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, jobId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -427,6 +478,8 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedWhen()
           .equals(other.getUpdatedWhen())) return false;
     }
+    if (!getUserId()
+        .equals(other.getUserId())) return false;
     if (!getEmployerId()
         .equals(other.getEmployerId())) return false;
     if (!getJobId()
@@ -456,6 +509,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATED_WHEN_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedWhen().hashCode();
     }
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId().hashCode();
     hash = (37 * hash) + EMPLOYER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getEmployerId().hashCode();
     hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
@@ -607,6 +662,8 @@ private static final long serialVersionUID = 0L;
         updatedWhen_ = null;
         updatedWhenBuilder_ = null;
       }
+      userId_ = "";
+
       employerId_ = "";
 
       jobId_ = "";
@@ -646,6 +703,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedWhen_ = updatedWhenBuilder_.build();
       }
+      result.userId_ = userId_;
       result.employerId_ = employerId_;
       result.jobId_ = jobId_;
       onBuilt();
@@ -712,6 +770,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedWhen()) {
         mergeUpdatedWhen(other.getUpdatedWhen());
+      }
+      if (!other.getUserId().isEmpty()) {
+        userId_ = other.userId_;
+        onChanged();
       }
       if (!other.getEmployerId().isEmpty()) {
         employerId_ = other.employerId_;
@@ -1083,9 +1145,85 @@ private static final long serialVersionUID = 0L;
       return updatedWhenBuilder_;
     }
 
+    private java.lang.Object userId_ = "";
+    /**
+     * <code>string user_id = 6;</code>
+     * @return The userId.
+     */
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string user_id = 6;</code>
+     * @return The bytes for userId.
+     */
+    public com.google.protobuf.ByteString
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string user_id = 6;</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string user_id = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      
+      userId_ = getDefaultInstance().getUserId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string user_id = 6;</code>
+     * @param value The bytes for userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object employerId_ = "";
     /**
-     * <code>string employer_id = 6;</code>
+     * <code>string employer_id = 7;</code>
      * @return The employerId.
      */
     public java.lang.String getEmployerId() {
@@ -1101,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string employer_id = 6;</code>
+     * <code>string employer_id = 7;</code>
      * @return The bytes for employerId.
      */
     public com.google.protobuf.ByteString
@@ -1118,7 +1256,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string employer_id = 6;</code>
+     * <code>string employer_id = 7;</code>
      * @param value The employerId to set.
      * @return This builder for chaining.
      */
@@ -1133,7 +1271,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string employer_id = 6;</code>
+     * <code>string employer_id = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearEmployerId() {
@@ -1143,7 +1281,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string employer_id = 6;</code>
+     * <code>string employer_id = 7;</code>
      * @param value The bytes for employerId to set.
      * @return This builder for chaining.
      */
@@ -1161,7 +1299,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object jobId_ = "";
     /**
-     * <code>string job_id = 7;</code>
+     * <code>string job_id = 8;</code>
      * @return The jobId.
      */
     public java.lang.String getJobId() {
@@ -1177,7 +1315,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job_id = 7;</code>
+     * <code>string job_id = 8;</code>
      * @return The bytes for jobId.
      */
     public com.google.protobuf.ByteString
@@ -1194,7 +1332,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job_id = 7;</code>
+     * <code>string job_id = 8;</code>
      * @param value The jobId to set.
      * @return This builder for chaining.
      */
@@ -1209,7 +1347,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job_id = 7;</code>
+     * <code>string job_id = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearJobId() {
@@ -1219,7 +1357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job_id = 7;</code>
+     * <code>string job_id = 8;</code>
      * @param value The bytes for jobId to set.
      * @return This builder for chaining.
      */

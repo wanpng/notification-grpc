@@ -55,7 +55,7 @@ public final class JobseekerNotificationProtos {
       ".ApplicationStatusChange\"I\n%NotifyApplic" +
       "ationStatusChangeResponse\022\020\n\010statusId\030\001 " +
       "\001(\005\022\016\n\006status\030\002 \001(\t\"6\n(NotifyJobseekerIn" +
-      "terviewScheduleResponse\022\n\n\002id\030\001 \001(\t2\226\003\n\034" +
+      "terviewScheduleResponse\022\n\n\002id\030\001 \001(\t2\250\005\n\034" +
       "JobseekerNotificationService\022g\n\020NotifyIn" +
       "vitation\022 .protos.domain.InvitationReque" +
       "st\0321.protos.service.NotifyJobseekerInvit" +
@@ -66,10 +66,17 @@ public final class JobseekerNotificationProtos {
       "NotifyInterviewSchedule\022).protos.domain." +
       "JobseekerInterviewSchedule\0328.protos.serv" +
       "ice.NotifyJobseekerInterviewScheduleResp" +
-      "onseBw\n$com.wanpng.notification.grpc.ser" +
-      "viceB\033JobseekerNotificationProtosP\001Z0git" +
-      "hub.com/wanpng/notification-grpc/grpc/se" +
-      "rviceb\006proto3"
+      "onse\022\205\001\n\036NotifyInterviewScheduleUpdated\022" +
+      ").protos.domain.JobseekerInterviewSchedu" +
+      "le\0328.protos.service.NotifyJobseekerInter" +
+      "viewScheduleResponse\022\207\001\n NotifyInterview" +
+      "ScheduleCancelled\022).protos.domain.Jobsee" +
+      "kerInterviewSchedule\0328.protos.service.No" +
+      "tifyJobseekerInterviewScheduleResponseBw" +
+      "\n$com.wanpng.notification.grpc.serviceB\033" +
+      "JobseekerNotificationProtosP\001Z0github.co" +
+      "m/wanpng/notification-grpc/grpc/serviceb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

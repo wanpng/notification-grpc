@@ -59,24 +59,36 @@ public interface JobseekerInterviewScheduleOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getUpdatedWhenOrBuilder();
 
   /**
-   * <code>string employer_id = 6;</code>
+   * <code>string user_id = 6;</code>
+   * @return The userId.
+   */
+  java.lang.String getUserId();
+  /**
+   * <code>string user_id = 6;</code>
+   * @return The bytes for userId.
+   */
+  com.google.protobuf.ByteString
+      getUserIdBytes();
+
+  /**
+   * <code>string employer_id = 7;</code>
    * @return The employerId.
    */
   java.lang.String getEmployerId();
   /**
-   * <code>string employer_id = 6;</code>
+   * <code>string employer_id = 7;</code>
    * @return The bytes for employerId.
    */
   com.google.protobuf.ByteString
       getEmployerIdBytes();
 
   /**
-   * <code>string job_id = 7;</code>
+   * <code>string job_id = 8;</code>
    * @return The jobId.
    */
   java.lang.String getJobId();
   /**
-   * <code>string job_id = 7;</code>
+   * <code>string job_id = 8;</code>
    * @return The bytes for jobId.
    */
   com.google.protobuf.ByteString
