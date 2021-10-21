@@ -34,6 +34,16 @@ public final class JobseekerNotificationProtos {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_NotifyInterviewScheduleDeletedRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_NotifyInterviewScheduleDeletedRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_service_NotifyInterviewScheduleDeletedResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_service_NotifyInterviewScheduleDeletedResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -55,28 +65,33 @@ public final class JobseekerNotificationProtos {
       ".ApplicationStatusChange\"I\n%NotifyApplic" +
       "ationStatusChangeResponse\022\020\n\010statusId\030\001 " +
       "\001(\005\022\016\n\006status\030\002 \001(\t\"6\n(NotifyJobseekerIn" +
-      "terviewScheduleResponse\022\n\n\002id\030\001 \001(\t2\246\005\n\034" +
-      "JobseekerNotificationService\022g\n\020NotifyIn" +
-      "vitation\022 .protos.domain.InvitationReque" +
-      "st\0321.protos.service.NotifyJobseekerInvit" +
-      "ationResponse\022\214\001\n\035NotifyApplicationStatu" +
-      "sChange\0224.protos.service.NotifyApplicati" +
-      "onStatusChangeRequest\0325.protos.service.N" +
-      "otifyApplicationStatusChangeResponse\022~\n\027" +
-      "NotifyInterviewSchedule\022).protos.domain." +
-      "JobseekerInterviewSchedule\0328.protos.serv" +
-      "ice.NotifyJobseekerInterviewScheduleResp" +
-      "onse\022\205\001\n\036NotifyInterviewScheduleUpdated\022" +
-      ").protos.domain.JobseekerInterviewSchedu" +
-      "le\0328.protos.service.NotifyJobseekerInter" +
-      "viewScheduleResponse\022\205\001\n\036NotifyInterview" +
-      "ScheduleDeleted\022).protos.domain.Jobseeke" +
-      "rInterviewSchedule\0328.protos.service.Noti" +
-      "fyJobseekerInterviewScheduleResponseBw\n$" +
-      "com.wanpng.notification.grpc.serviceB\033Jo" +
-      "bseekerNotificationProtosP\001Z0github.com/" +
-      "wanpng/notification-grpc/grpc/serviceb\006p" +
-      "roto3"
+      "terviewScheduleResponse\022\n\n\002id\030\001 \001(\t\"w\n%N" +
+      "otifyInterviewScheduleDeletedRequest\022N\n\033" +
+      "jobseekerInterviewSchedules\030\001 \003(\0132).prot" +
+      "os.domain.JobseekerInterviewSchedule\"J\n&" +
+      "NotifyInterviewScheduleDeletedResponse\022\020" +
+      "\n\010statusId\030\001 \001(\005\022\016\n\006status\030\002 \001(\t2\260\005\n\034Job" +
+      "seekerNotificationService\022g\n\020NotifyInvit" +
+      "ation\022 .protos.domain.InvitationRequest\032" +
+      "1.protos.service.NotifyJobseekerInvitati" +
+      "onResponse\022\214\001\n\035NotifyApplicationStatusCh" +
+      "ange\0224.protos.service.NotifyApplicationS" +
+      "tatusChangeRequest\0325.protos.service.Noti" +
+      "fyApplicationStatusChangeResponse\022~\n\027Not" +
+      "ifyInterviewSchedule\022).protos.domain.Job" +
+      "seekerInterviewSchedule\0328.protos.service" +
+      ".NotifyJobseekerInterviewScheduleRespons" +
+      "e\022\205\001\n\036NotifyInterviewScheduleUpdated\022).p" +
+      "rotos.domain.JobseekerInterviewSchedule\032" +
+      "8.protos.service.NotifyJobseekerIntervie" +
+      "wScheduleResponse\022\217\001\n\036NotifyInterviewSch" +
+      "eduleDeleted\0225.protos.service.NotifyInte" +
+      "rviewScheduleDeletedRequest\0326.protos.ser" +
+      "vice.NotifyInterviewScheduleDeletedRespo" +
+      "nseBw\n$com.wanpng.notification.grpc.serv" +
+      "iceB\033JobseekerNotificationProtosP\001Z0gith" +
+      "ub.com/wanpng/notification-grpc/grpc/ser" +
+      "viceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -109,6 +124,18 @@ public final class JobseekerNotificationProtos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_service_NotifyJobseekerInterviewScheduleResponse_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_protos_service_NotifyInterviewScheduleDeletedRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_protos_service_NotifyInterviewScheduleDeletedRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_NotifyInterviewScheduleDeletedRequest_descriptor,
+        new java.lang.String[] { "JobseekerInterviewSchedules", });
+    internal_static_protos_service_NotifyInterviewScheduleDeletedResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_protos_service_NotifyInterviewScheduleDeletedResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_service_NotifyInterviewScheduleDeletedResponse_descriptor,
+        new java.lang.String[] { "StatusId", "Status", });
     com.wanpng.notification.grpc.domain.InvitationRequestProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.ApplicationStatusChangeProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.JobseekerInterviewScheduleProtos.getDescriptor();

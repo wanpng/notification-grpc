@@ -16,7 +16,7 @@ service JobseekerNotificationService {
     rpc NotifyApplicationStatusChange(NotifyApplicationStatusChangeRequest) returns (NotifyApplicationStatusChangeResponse);
     rpc NotifyInterviewSchedule(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
     rpc NotifyInterviewScheduleUpdated(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
-    rpc NotifyInterviewScheduleDeleted(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
+    rpc NotifyInterviewScheduleDeleted(NotifyInterviewScheduleDeletedRequest) returns (NotifyInterviewScheduleDeletedResponse);
 }
 
 message NotifyJobseekerInvitationResponse {
@@ -34,4 +34,13 @@ message NotifyApplicationStatusChangeResponse {
 
 message NotifyJobseekerInterviewScheduleResponse {
     string id = 1;
+}
+
+message NotifyInterviewScheduleDeletedRequest {
+    repeated protos.domain.JobseekerInterviewSchedule jobseekerInterviewSchedules = 1;
+}
+
+message NotifyInterviewScheduleDeletedResponse {
+    int32 statusId = 1;
+    string status = 2;
 }
