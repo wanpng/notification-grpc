@@ -139,34 +139,34 @@ public final class JobseekerNotificationServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule,
-      com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleCancelledMethod;
+      com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleDeletedMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "NotifyInterviewScheduleCancelled",
+      fullMethodName = SERVICE_NAME + '/' + "NotifyInterviewScheduleDeleted",
       requestType = com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule.class,
       responseType = com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule,
-      com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleCancelledMethod() {
-    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule, com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleCancelledMethod;
-    if ((getNotifyInterviewScheduleCancelledMethod = JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleCancelledMethod) == null) {
+      com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleDeletedMethod() {
+    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule, com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> getNotifyInterviewScheduleDeletedMethod;
+    if ((getNotifyInterviewScheduleDeletedMethod = JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleDeletedMethod) == null) {
       synchronized (JobseekerNotificationServiceGrpc.class) {
-        if ((getNotifyInterviewScheduleCancelledMethod = JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleCancelledMethod) == null) {
-          JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleCancelledMethod = getNotifyInterviewScheduleCancelledMethod =
+        if ((getNotifyInterviewScheduleDeletedMethod = JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleDeletedMethod) == null) {
+          JobseekerNotificationServiceGrpc.getNotifyInterviewScheduleDeletedMethod = getNotifyInterviewScheduleDeletedMethod =
               io.grpc.MethodDescriptor.<com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule, com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyInterviewScheduleCancelled"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyInterviewScheduleDeleted"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new JobseekerNotificationServiceMethodDescriptorSupplier("NotifyInterviewScheduleCancelled"))
+              .setSchemaDescriptor(new JobseekerNotificationServiceMethodDescriptorSupplier("NotifyInterviewScheduleDeleted"))
               .build();
         }
       }
     }
-    return getNotifyInterviewScheduleCancelledMethod;
+    return getNotifyInterviewScheduleDeletedMethod;
   }
 
   /**
@@ -247,9 +247,9 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public void notifyInterviewScheduleCancelled(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request,
+    public void notifyInterviewScheduleDeleted(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request,
         io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyInterviewScheduleCancelledMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyInterviewScheduleDeletedMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -283,12 +283,12 @@ public final class JobseekerNotificationServiceGrpc {
                 com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse>(
                   this, METHODID_NOTIFY_INTERVIEW_SCHEDULE_UPDATED)))
           .addMethod(
-            getNotifyInterviewScheduleCancelledMethod(),
+            getNotifyInterviewScheduleDeletedMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule,
                 com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse>(
-                  this, METHODID_NOTIFY_INTERVIEW_SCHEDULE_CANCELLED)))
+                  this, METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED)))
           .build();
     }
   }
@@ -341,10 +341,10 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public void notifyInterviewScheduleCancelled(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request,
+    public void notifyInterviewScheduleDeleted(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request,
         io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getNotifyInterviewScheduleCancelledMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getNotifyInterviewScheduleDeletedMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -392,9 +392,9 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse notifyInterviewScheduleCancelled(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request) {
+    public com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse notifyInterviewScheduleDeleted(com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getNotifyInterviewScheduleCancelledMethod(), getCallOptions(), request);
+          getChannel(), getNotifyInterviewScheduleDeletedMethod(), getCallOptions(), request);
     }
   }
 
@@ -446,10 +446,10 @@ public final class JobseekerNotificationServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> notifyInterviewScheduleCancelled(
+    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse> notifyInterviewScheduleDeleted(
         com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getNotifyInterviewScheduleCancelledMethod(), getCallOptions()), request);
+          getChannel().newCall(getNotifyInterviewScheduleDeletedMethod(), getCallOptions()), request);
     }
   }
 
@@ -457,7 +457,7 @@ public final class JobseekerNotificationServiceGrpc {
   private static final int METHODID_NOTIFY_APPLICATION_STATUS_CHANGE = 1;
   private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE = 2;
   private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE_UPDATED = 3;
-  private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE_CANCELLED = 4;
+  private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -492,8 +492,8 @@ public final class JobseekerNotificationServiceGrpc {
           serviceImpl.notifyInterviewScheduleUpdated((com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule) request,
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse>) responseObserver);
           break;
-        case METHODID_NOTIFY_INTERVIEW_SCHEDULE_CANCELLED:
-          serviceImpl.notifyInterviewScheduleCancelled((com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule) request,
+        case METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED:
+          serviceImpl.notifyInterviewScheduleDeleted((com.wanpng.notification.grpc.domain.JobseekerInterviewSchedule) request,
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyJobseekerInterviewScheduleResponse>) responseObserver);
           break;
         default:
@@ -561,7 +561,7 @@ public final class JobseekerNotificationServiceGrpc {
               .addMethod(getNotifyApplicationStatusChangeMethod())
               .addMethod(getNotifyInterviewScheduleMethod())
               .addMethod(getNotifyInterviewScheduleUpdatedMethod())
-              .addMethod(getNotifyInterviewScheduleCancelledMethod())
+              .addMethod(getNotifyInterviewScheduleDeletedMethod())
               .build();
         }
       }

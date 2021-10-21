@@ -17,7 +17,5 @@ message JobseekerInterviewSchedule {
     google.protobuf.Timestamp updated_when = 5;
     string user_id = 6;
     string employer_id = 7;
-    string employer_first_name = 8;
-    string employer_last_name = 9;
-    string job_id = 10;
+    string job_id = 8;
 }
