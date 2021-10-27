@@ -10,6 +10,7 @@ option java_outer_classname = "JobseekerNotificationProtos";
 import "protos/domain/invitation_request.grpc.proto";
 import "protos/domain/application_status_change.grpc.proto";
 import "protos/domain/jobseeker_interview_schedule.proto";
+import "protos/domain/daily_job_alert_notification.grpc.proto";
 
 service JobseekerNotificationService {
     rpc NotifyInvitation(protos.domain.InvitationRequest) returns (NotifyJobseekerInvitationResponse);
@@ -17,6 +18,7 @@ service JobseekerNotificationService {
     rpc NotifyInterviewSchedule(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
     rpc NotifyInterviewScheduleUpdated(protos.domain.JobseekerInterviewSchedule) returns (NotifyJobseekerInterviewScheduleResponse);
     rpc NotifyInterviewScheduleDeleted(NotifyInterviewScheduleDeletedRequest) returns (NotifyInterviewScheduleDeletedResponse);
+    rpc NotifyDailyJobAlert(NotifyDailyJobAlertRequest) returns (NotifyDailyJobAlertResponse);
 }
 
 message NotifyJobseekerInvitationResponse {
@@ -41,6 +43,15 @@ message NotifyInterviewScheduleDeletedRequest {
 }
 
 message NotifyInterviewScheduleDeletedResponse {
+    int32 statusId = 1;
+    string status = 2;
+}
+
+message NotifyDailyJobAlertRequest {
+    repeated protos.domain.DailyJobAlertNotification daily_job_alert_notifications = 1;
+}
+
+message NotifyDailyJobAlertResponse {
     int32 statusId = 1;
     string status = 2;
 }

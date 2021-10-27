@@ -169,6 +169,37 @@ public final class JobseekerNotificationServiceGrpc {
     return getNotifyInterviewScheduleDeletedMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest,
+      com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> getNotifyDailyJobAlertMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "NotifyDailyJobAlert",
+      requestType = com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest.class,
+      responseType = com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest,
+      com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> getNotifyDailyJobAlertMethod() {
+    io.grpc.MethodDescriptor<com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest, com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> getNotifyDailyJobAlertMethod;
+    if ((getNotifyDailyJobAlertMethod = JobseekerNotificationServiceGrpc.getNotifyDailyJobAlertMethod) == null) {
+      synchronized (JobseekerNotificationServiceGrpc.class) {
+        if ((getNotifyDailyJobAlertMethod = JobseekerNotificationServiceGrpc.getNotifyDailyJobAlertMethod) == null) {
+          JobseekerNotificationServiceGrpc.getNotifyDailyJobAlertMethod = getNotifyDailyJobAlertMethod =
+              io.grpc.MethodDescriptor.<com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest, com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyDailyJobAlert"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new JobseekerNotificationServiceMethodDescriptorSupplier("NotifyDailyJobAlert"))
+              .build();
+        }
+      }
+    }
+    return getNotifyDailyJobAlertMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class JobseekerNotificationServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyInterviewScheduleDeletedMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void notifyDailyJobAlert(com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyDailyJobAlertMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -289,6 +327,13 @@ public final class JobseekerNotificationServiceGrpc {
                 com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedRequest,
                 com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedResponse>(
                   this, METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED)))
+          .addMethod(
+            getNotifyDailyJobAlertMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest,
+                com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse>(
+                  this, METHODID_NOTIFY_DAILY_JOB_ALERT)))
           .build();
     }
   }
@@ -346,6 +391,14 @@ public final class JobseekerNotificationServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getNotifyInterviewScheduleDeletedMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void notifyDailyJobAlert(com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest request,
+        io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getNotifyDailyJobAlertMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -395,6 +448,13 @@ public final class JobseekerNotificationServiceGrpc {
     public com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedResponse notifyInterviewScheduleDeleted(com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getNotifyInterviewScheduleDeletedMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse notifyDailyJobAlert(com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyDailyJobAlertMethod(), getCallOptions(), request);
     }
   }
 
@@ -451,6 +511,14 @@ public final class JobseekerNotificationServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getNotifyInterviewScheduleDeletedMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse> notifyDailyJobAlert(
+        com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getNotifyDailyJobAlertMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_NOTIFY_INVITATION = 0;
@@ -458,6 +526,7 @@ public final class JobseekerNotificationServiceGrpc {
   private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE = 2;
   private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE_UPDATED = 3;
   private static final int METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED = 4;
+  private static final int METHODID_NOTIFY_DAILY_JOB_ALERT = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -495,6 +564,10 @@ public final class JobseekerNotificationServiceGrpc {
         case METHODID_NOTIFY_INTERVIEW_SCHEDULE_DELETED:
           serviceImpl.notifyInterviewScheduleDeleted((com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedRequest) request,
               (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyInterviewScheduleDeletedResponse>) responseObserver);
+          break;
+        case METHODID_NOTIFY_DAILY_JOB_ALERT:
+          serviceImpl.notifyDailyJobAlert((com.wanpng.notification.grpc.service.NotifyDailyJobAlertRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanpng.notification.grpc.service.NotifyDailyJobAlertResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -562,6 +635,7 @@ public final class JobseekerNotificationServiceGrpc {
               .addMethod(getNotifyInterviewScheduleMethod())
               .addMethod(getNotifyInterviewScheduleUpdatedMethod())
               .addMethod(getNotifyInterviewScheduleDeletedMethod())
+              .addMethod(getNotifyDailyJobAlertMethod())
               .build();
         }
       }

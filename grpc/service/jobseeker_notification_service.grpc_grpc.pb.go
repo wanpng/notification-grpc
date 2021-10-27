@@ -24,6 +24,7 @@ type JobseekerNotificationServiceClient interface {
 	NotifyInterviewSchedule(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
 	NotifyInterviewScheduleUpdated(ctx context.Context, in *domain.JobseekerInterviewSchedule, opts ...grpc.CallOption) (*NotifyJobseekerInterviewScheduleResponse, error)
 	NotifyInterviewScheduleDeleted(ctx context.Context, in *NotifyInterviewScheduleDeletedRequest, opts ...grpc.CallOption) (*NotifyInterviewScheduleDeletedResponse, error)
+	NotifyDailyJobAlert(ctx context.Context, in *NotifyDailyJobAlertRequest, opts ...grpc.CallOption) (*NotifyDailyJobAlertResponse, error)
 }
 
 type jobseekerNotificationServiceClient struct {
@@ -79,6 +80,15 @@ func (c *jobseekerNotificationServiceClient) NotifyInterviewScheduleDeleted(ctx 
 	return out, nil
 }
 
+func (c *jobseekerNotificationServiceClient) NotifyDailyJobAlert(ctx context.Context, in *NotifyDailyJobAlertRequest, opts ...grpc.CallOption) (*NotifyDailyJobAlertResponse, error) {
+	out := new(NotifyDailyJobAlertResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.JobseekerNotificationService/NotifyDailyJobAlert", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JobseekerNotificationServiceServer is the server API for JobseekerNotificationService service.
 // All implementations must embed UnimplementedJobseekerNotificationServiceServer
 // for forward compatibility
@@ -88,6 +98,7 @@ type JobseekerNotificationServiceServer interface {
 	NotifyInterviewSchedule(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
 	NotifyInterviewScheduleUpdated(context.Context, *domain.JobseekerInterviewSchedule) (*NotifyJobseekerInterviewScheduleResponse, error)
 	NotifyInterviewScheduleDeleted(context.Context, *NotifyInterviewScheduleDeletedRequest) (*NotifyInterviewScheduleDeletedResponse, error)
+	NotifyDailyJobAlert(context.Context, *NotifyDailyJobAlertRequest) (*NotifyDailyJobAlertResponse, error)
 	mustEmbedUnimplementedJobseekerNotificationServiceServer()
 }
 
@@ -109,6 +120,9 @@ func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewScheduleUp
 }
 func (UnimplementedJobseekerNotificationServiceServer) NotifyInterviewScheduleDeleted(context.Context, *NotifyInterviewScheduleDeletedRequest) (*NotifyInterviewScheduleDeletedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewScheduleDeleted not implemented")
+}
+func (UnimplementedJobseekerNotificationServiceServer) NotifyDailyJobAlert(context.Context, *NotifyDailyJobAlertRequest) (*NotifyDailyJobAlertResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyDailyJobAlert not implemented")
 }
 func (UnimplementedJobseekerNotificationServiceServer) mustEmbedUnimplementedJobseekerNotificationServiceServer() {
 }
@@ -214,6 +228,24 @@ func _JobseekerNotificationService_NotifyInterviewScheduleDeleted_Handler(srv in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JobseekerNotificationService_NotifyDailyJobAlert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyDailyJobAlertRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobseekerNotificationServiceServer).NotifyDailyJobAlert(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.JobseekerNotificationService/NotifyDailyJobAlert",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobseekerNotificationServiceServer).NotifyDailyJobAlert(ctx, req.(*NotifyDailyJobAlertRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // JobseekerNotificationService_ServiceDesc is the grpc.ServiceDesc for JobseekerNotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -240,6 +272,10 @@ var JobseekerNotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NotifyInterviewScheduleDeleted",
 			Handler:    _JobseekerNotificationService_NotifyInterviewScheduleDeleted_Handler,
+		},
+		{
+			MethodName: "NotifyDailyJobAlert",
+			Handler:    _JobseekerNotificationService_NotifyDailyJobAlert_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
