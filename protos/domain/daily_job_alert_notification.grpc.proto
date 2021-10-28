@@ -17,4 +17,6 @@ message DailyJobAlertNotification {
     google.protobuf.Timestamp updated_when = 5;
     string keyword = 6;
     int32 count = 7;
+    string url = 8;
+    string province = 9;
 }

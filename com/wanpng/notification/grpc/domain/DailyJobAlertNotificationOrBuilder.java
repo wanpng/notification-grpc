@@ -75,4 +75,28 @@ public interface DailyJobAlertNotificationOrBuilder extends
    * @return The count.
    */
   int getCount();
+
+  /**
+   * <code>string url = 8;</code>
+   * @return The url.
+   */
+  java.lang.String getUrl();
+  /**
+   * <code>string url = 8;</code>
+   * @return The bytes for url.
+   */
+  com.google.protobuf.ByteString
+      getUrlBytes();
+
+  /**
+   * <code>string province = 9;</code>
+   * @return The province.
+   */
+  java.lang.String getProvince();
+  /**
+   * <code>string province = 9;</code>
+   * @return The bytes for province.
+   */
+  com.google.protobuf.ByteString
+      getProvinceBytes();
 }

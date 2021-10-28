@@ -19,6 +19,8 @@ private static final long serialVersionUID = 0L;
     jobseekerId_ = "";
     type_ = "";
     keyword_ = "";
+    url_ = "";
+    province_ = "";
   }
 
   @java.lang.Override
@@ -95,6 +97,18 @@ private static final long serialVersionUID = 0L;
           case 56: {
 
             count_ = input.readInt32();
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            url_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            province_ = s;
             break;
           }
           default: {
@@ -302,6 +316,82 @@ private static final long serialVersionUID = 0L;
     return count_;
   }
 
+  public static final int URL_FIELD_NUMBER = 8;
+  private volatile java.lang.Object url_;
+  /**
+   * <code>string url = 8;</code>
+   * @return The url.
+   */
+  @java.lang.Override
+  public java.lang.String getUrl() {
+    java.lang.Object ref = url_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      url_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string url = 8;</code>
+   * @return The bytes for url.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUrlBytes() {
+    java.lang.Object ref = url_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      url_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PROVINCE_FIELD_NUMBER = 9;
+  private volatile java.lang.Object province_;
+  /**
+   * <code>string province = 9;</code>
+   * @return The province.
+   */
+  @java.lang.Override
+  public java.lang.String getProvince() {
+    java.lang.Object ref = province_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      province_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string province = 9;</code>
+   * @return The bytes for province.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getProvinceBytes() {
+    java.lang.Object ref = province_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      province_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -337,6 +427,12 @@ private static final long serialVersionUID = 0L;
     if (count_ != 0) {
       output.writeInt32(7, count_);
     }
+    if (!getUrlBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, url_);
+    }
+    if (!getProvinceBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, province_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -371,6 +467,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(7, count_);
     }
+    if (!getUrlBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, url_);
+    }
+    if (!getProvinceBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, province_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -403,6 +505,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKeyword())) return false;
     if (getCount()
         != other.getCount()) return false;
+    if (!getUrl()
+        .equals(other.getUrl())) return false;
+    if (!getProvince()
+        .equals(other.getProvince())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -432,6 +538,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getKeyword().hashCode();
     hash = (37 * hash) + COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getCount();
+    hash = (37 * hash) + URL_FIELD_NUMBER;
+    hash = (53 * hash) + getUrl().hashCode();
+    hash = (37 * hash) + PROVINCE_FIELD_NUMBER;
+    hash = (53 * hash) + getProvince().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -583,6 +693,10 @@ private static final long serialVersionUID = 0L;
 
       count_ = 0;
 
+      url_ = "";
+
+      province_ = "";
+
       return this;
     }
 
@@ -620,6 +734,8 @@ private static final long serialVersionUID = 0L;
       }
       result.keyword_ = keyword_;
       result.count_ = count_;
+      result.url_ = url_;
+      result.province_ = province_;
       onBuilt();
       return result;
     }
@@ -691,6 +807,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getCount() != 0) {
         setCount(other.getCount());
+      }
+      if (!other.getUrl().isEmpty()) {
+        url_ = other.url_;
+        onChanged();
+      }
+      if (!other.getProvince().isEmpty()) {
+        province_ = other.province_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1157,6 +1281,158 @@ private static final long serialVersionUID = 0L;
     public Builder clearCount() {
       
       count_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object url_ = "";
+    /**
+     * <code>string url = 8;</code>
+     * @return The url.
+     */
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        url_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string url = 8;</code>
+     * @return The bytes for url.
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string url = 8;</code>
+     * @param value The url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      url_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string url = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUrl() {
+      
+      url_ = getDefaultInstance().getUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string url = 8;</code>
+     * @param value The bytes for url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      url_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object province_ = "";
+    /**
+     * <code>string province = 9;</code>
+     * @return The province.
+     */
+    public java.lang.String getProvince() {
+      java.lang.Object ref = province_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        province_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string province = 9;</code>
+     * @return The bytes for province.
+     */
+    public com.google.protobuf.ByteString
+        getProvinceBytes() {
+      java.lang.Object ref = province_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        province_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string province = 9;</code>
+     * @param value The province to set.
+     * @return This builder for chaining.
+     */
+    public Builder setProvince(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      province_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string province = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearProvince() {
+      
+      province_ = getDefaultInstance().getProvince();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string province = 9;</code>
+     * @param value The bytes for province to set.
+     * @return This builder for chaining.
+     */
+    public Builder setProvinceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      province_ = value;
       onChanged();
       return this;
     }
