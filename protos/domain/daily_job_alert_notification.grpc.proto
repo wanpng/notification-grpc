@@ -15,7 +15,6 @@ message DailyJobAlertNotification {
     bool is_viewed = 3;
     bool is_seen = 4;
     google.protobuf.Timestamp updated_when = 5;
-    string employer_id = 6;
-    string job_id = 7;
-    int32 count = 8;
+    string keyword = 6;
+    int32 count = 7;
 }

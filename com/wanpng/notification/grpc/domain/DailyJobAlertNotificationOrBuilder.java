@@ -59,31 +59,19 @@ public interface DailyJobAlertNotificationOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getUpdatedWhenOrBuilder();
 
   /**
-   * <code>string employer_id = 6;</code>
-   * @return The employerId.
+   * <code>string keyword = 6;</code>
+   * @return The keyword.
    */
-  java.lang.String getEmployerId();
+  java.lang.String getKeyword();
   /**
-   * <code>string employer_id = 6;</code>
-   * @return The bytes for employerId.
-   */
-  com.google.protobuf.ByteString
-      getEmployerIdBytes();
-
-  /**
-   * <code>string job_id = 7;</code>
-   * @return The jobId.
-   */
-  java.lang.String getJobId();
-  /**
-   * <code>string job_id = 7;</code>
-   * @return The bytes for jobId.
+   * <code>string keyword = 6;</code>
+   * @return The bytes for keyword.
    */
   com.google.protobuf.ByteString
-      getJobIdBytes();
+      getKeywordBytes();
 
   /**
-   * <code>int32 count = 8;</code>
+   * <code>int32 count = 7;</code>
    * @return The count.
    */
   int getCount();
