@@ -10,11 +10,13 @@ option java_outer_classname = "EmployerNotificationProtos";
 import "protos/domain/invitation_response.grpc.proto";
 import "protos/domain/applicant_count.grpc.proto";
 import "protos/domain/employer_interview_schedule.proto";
+import "protos/domain/employer_interview_schedule_declined.grpc.proto";
 
 service EmployerNotificationService {
     rpc NotifyInvitation(protos.domain.InvitationResponse) returns (NotifyEmployerInvitationResponse);
     rpc NotifyApplicantCount(protos.domain.ApplicantCount) returns (NotifyApplicantCountResponse);
     rpc NotifyInterviewSchedule(protos.domain.EmployerInterviewSchedule) returns (NotifyEmployerInterviewScheduleResponse);
+    rpc NotifyInterviewScheduleDeclined(protos.domain.EmployerInterviewScheduleDeclined) returns (NotifyEmployerInterviewScheduleResponse);
 }
 
 message NotifyEmployerInvitationResponse {

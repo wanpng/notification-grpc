@@ -22,6 +22,7 @@ type EmployerNotificationServiceClient interface {
 	NotifyInvitation(ctx context.Context, in *domain.InvitationResponse, opts ...grpc.CallOption) (*NotifyEmployerInvitationResponse, error)
 	NotifyApplicantCount(ctx context.Context, in *domain.ApplicantCount, opts ...grpc.CallOption) (*NotifyApplicantCountResponse, error)
 	NotifyInterviewSchedule(ctx context.Context, in *domain.EmployerInterviewSchedule, opts ...grpc.CallOption) (*NotifyEmployerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleDeclined(ctx context.Context, in *domain.EmployerInterviewScheduleDeclined, opts ...grpc.CallOption) (*NotifyEmployerInterviewScheduleResponse, error)
 }
 
 type employerNotificationServiceClient struct {
@@ -59,6 +60,15 @@ func (c *employerNotificationServiceClient) NotifyInterviewSchedule(ctx context.
 	return out, nil
 }
 
+func (c *employerNotificationServiceClient) NotifyInterviewScheduleDeclined(ctx context.Context, in *domain.EmployerInterviewScheduleDeclined, opts ...grpc.CallOption) (*NotifyEmployerInterviewScheduleResponse, error) {
+	out := new(NotifyEmployerInterviewScheduleResponse)
+	err := c.cc.Invoke(ctx, "/protos.service.EmployerNotificationService/NotifyInterviewScheduleDeclined", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // EmployerNotificationServiceServer is the server API for EmployerNotificationService service.
 // All implementations must embed UnimplementedEmployerNotificationServiceServer
 // for forward compatibility
@@ -66,6 +76,7 @@ type EmployerNotificationServiceServer interface {
 	NotifyInvitation(context.Context, *domain.InvitationResponse) (*NotifyEmployerInvitationResponse, error)
 	NotifyApplicantCount(context.Context, *domain.ApplicantCount) (*NotifyApplicantCountResponse, error)
 	NotifyInterviewSchedule(context.Context, *domain.EmployerInterviewSchedule) (*NotifyEmployerInterviewScheduleResponse, error)
+	NotifyInterviewScheduleDeclined(context.Context, *domain.EmployerInterviewScheduleDeclined) (*NotifyEmployerInterviewScheduleResponse, error)
 	mustEmbedUnimplementedEmployerNotificationServiceServer()
 }
 
@@ -81,6 +92,9 @@ func (UnimplementedEmployerNotificationServiceServer) NotifyApplicantCount(conte
 }
 func (UnimplementedEmployerNotificationServiceServer) NotifyInterviewSchedule(context.Context, *domain.EmployerInterviewSchedule) (*NotifyEmployerInterviewScheduleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewSchedule not implemented")
+}
+func (UnimplementedEmployerNotificationServiceServer) NotifyInterviewScheduleDeclined(context.Context, *domain.EmployerInterviewScheduleDeclined) (*NotifyEmployerInterviewScheduleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NotifyInterviewScheduleDeclined not implemented")
 }
 func (UnimplementedEmployerNotificationServiceServer) mustEmbedUnimplementedEmployerNotificationServiceServer() {
 }
@@ -150,6 +164,24 @@ func _EmployerNotificationService_NotifyInterviewSchedule_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _EmployerNotificationService_NotifyInterviewScheduleDeclined_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(domain.EmployerInterviewScheduleDeclined)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmployerNotificationServiceServer).NotifyInterviewScheduleDeclined(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.service.EmployerNotificationService/NotifyInterviewScheduleDeclined",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmployerNotificationServiceServer).NotifyInterviewScheduleDeclined(ctx, req.(*domain.EmployerInterviewScheduleDeclined))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // EmployerNotificationService_ServiceDesc is the grpc.ServiceDesc for EmployerNotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -168,6 +200,10 @@ var EmployerNotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NotifyInterviewSchedule",
 			Handler:    _EmployerNotificationService_NotifyInterviewSchedule_Handler,
+		},
+		{
+			MethodName: "NotifyInterviewScheduleDeclined",
+			Handler:    _EmployerNotificationService_NotifyInterviewScheduleDeclined_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

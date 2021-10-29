@@ -43,23 +43,28 @@ public final class EmployerNotificationProtos {
       "s/domain/invitation_response.grpc.proto\032" +
       "(protos/domain/applicant_count.grpc.prot" +
       "o\032/protos/domain/employer_interview_sche" +
-      "dule.proto\".\n NotifyEmployerInvitationRe" +
-      "sponse\022\n\n\002id\030\001 \001(\t\"*\n\034NotifyApplicantCou" +
-      "ntResponse\022\n\n\002id\030\001 \001(\t\"5\n\'NotifyEmployer" +
-      "InterviewScheduleResponse\022\n\n\002id\030\001 \001(\t2\351\002" +
-      "\n\033EmployerNotificationService\022g\n\020NotifyI" +
-      "nvitation\022!.protos.domain.InvitationResp" +
-      "onse\0320.protos.service.NotifyEmployerInvi" +
-      "tationResponse\022c\n\024NotifyApplicantCount\022\035" +
-      ".protos.domain.ApplicantCount\032,.protos.s" +
-      "ervice.NotifyApplicantCountResponse\022|\n\027N" +
-      "otifyInterviewSchedule\022(.protos.domain.E" +
-      "mployerInterviewSchedule\0327.protos.servic" +
-      "e.NotifyEmployerInterviewScheduleRespons" +
-      "eBv\n$com.wanpng.notification.grpc.servic" +
-      "eB\032EmployerNotificationProtosP\001Z0github." +
-      "com/wanpng/notification-grpc/grpc/servic" +
-      "eb\006proto3"
+      "dule.proto\032=protos/domain/employer_inter" +
+      "view_schedule_declined.grpc.proto\".\n Not" +
+      "ifyEmployerInvitationResponse\022\n\n\002id\030\001 \001(" +
+      "\t\"*\n\034NotifyApplicantCountResponse\022\n\n\002id\030" +
+      "\001 \001(\t\"5\n\'NotifyEmployerInterviewSchedule" +
+      "Response\022\n\n\002id\030\001 \001(\t2\370\003\n\033EmployerNotific" +
+      "ationService\022g\n\020NotifyInvitation\022!.proto" +
+      "s.domain.InvitationResponse\0320.protos.ser" +
+      "vice.NotifyEmployerInvitationResponse\022c\n" +
+      "\024NotifyApplicantCount\022\035.protos.domain.Ap" +
+      "plicantCount\032,.protos.service.NotifyAppl" +
+      "icantCountResponse\022|\n\027NotifyInterviewSch" +
+      "edule\022(.protos.domain.EmployerInterviewS" +
+      "chedule\0327.protos.service.NotifyEmployerI" +
+      "nterviewScheduleResponse\022\214\001\n\037NotifyInter" +
+      "viewScheduleDeclined\0220.protos.domain.Emp" +
+      "loyerInterviewScheduleDeclined\0327.protos." +
+      "service.NotifyEmployerInterviewScheduleR" +
+      "esponseBv\n$com.wanpng.notification.grpc." +
+      "serviceB\032EmployerNotificationProtosP\001Z0g" +
+      "ithub.com/wanpng/notification-grpc/grpc/" +
+      "serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -67,6 +72,7 @@ public final class EmployerNotificationProtos {
           com.wanpng.notification.grpc.domain.InvitationResponseProtos.getDescriptor(),
           com.wanpng.notification.grpc.domain.ApplicationCountProtos.getDescriptor(),
           com.wanpng.notification.grpc.domain.EmployerInterviewScheduleProtos.getDescriptor(),
+          com.wanpng.notification.grpc.domain.EmployerInterviewScheduleDeclinedProtos.getDescriptor(),
         });
     internal_static_protos_service_NotifyEmployerInvitationResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -89,6 +95,7 @@ public final class EmployerNotificationProtos {
     com.wanpng.notification.grpc.domain.InvitationResponseProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.ApplicationCountProtos.getDescriptor();
     com.wanpng.notification.grpc.domain.EmployerInterviewScheduleProtos.getDescriptor();
+    com.wanpng.notification.grpc.domain.EmployerInterviewScheduleDeclinedProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
